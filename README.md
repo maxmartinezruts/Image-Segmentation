@@ -5,6 +5,9 @@ Given an image of size NxM
 - X<sub>i</sub> represents the laber of pixel i. This is 0 if classified as A and 1 if classified as B.
 - mu<sub>x<sub>i</sub></sub> is the mean of the pixel values given x. This is a vector [mu<sub>0</sub>, mu<sub>1</sub>]
 
+<p align="center">
+  <img src="pixel_values.png" width="350" alt="pixel valuest">
+</p>
 
 Then, we can the distribution P(x<sub>i</sub>) as
 P(x<sub>i</sub>) = Q(x<sub>i</sub>) * R(x<sub>i</sub>,x<sub>J</sub>)
@@ -20,10 +23,27 @@ Such that R is 1 if all neighbours of i have the same label of i and <1 otherwis
 
 With that, Gibbs algorithm is described as following:
 
-- Initialize all the labels i randomly.
+- Initialize all the labels i randomly (see figure below)
 
 - For t=1 to infinity:
 
-- ... x<sub>i</sub> <- sample x<sub>i</sub> from P(x<sub>i</sub>)
+- ... x<sub>i</sub> <- sample x<sub>i</sub> from P(x<sub>i</sub>) (see evolution of x below)
+
+<p align="center">
+  <img src="labels_init.png" width="350" alt="pixel valuest">
+</p>
+
+<p align="center">
+  <img src="labels_k1.png" width="350" alt="pixel valuest">
+</p>
+
+<p align="center">
+  <img src="labels_k2.png" width="350" alt="pixel valuest">
+</p>
+
+
+<p align="center">
+  <img src="labels_k10.png" width="350" alt="pixel valuest">
+</p>
 
 Such approach satisfies the Detailed Balance Equation, and therefore converges to a stationary distribution P(x<sub>i</sub>)
